@@ -20,6 +20,9 @@ const item = mongoose.Schema({
     quantity: {
         type: Number
     },
+    description: {
+        type: String
+    },
     category: {
         type: String,
         required: true

@@ -21,6 +21,7 @@ exports.getItems = (req, res, next) => {
                     name: bar.name,
                     location: bar.location,
                     quantity: bar.quantity,
+                    description: bar.description,
                     category: bar.category,
                     creator: bar.creator,
                     createdAt,
@@ -58,6 +59,7 @@ exports.getItemsByCat = (req, res, next) => {
                     name: bar.name,
                     location: bar.location,
                     quantity: bar.quantity,
+                    description: bar.description
                     category: bar.category,
                     creator: bar.creator,
                     createdAt,
@@ -79,12 +81,14 @@ exports.createItem = (req, res, next) => {
         name,
         location,
         quantity,
+        description,
         category,
     } = req.body;
     const item = new Items({
         name,
         location,
         quantity,
+        description,
         category,
         creator: req.user.id
     });
@@ -93,6 +97,7 @@ exports.createItem = (req, res, next) => {
         const itemObj = {
             name,
             location,
+            description,
             category,
             creator: req.user.id
         };
@@ -108,18 +113,6 @@ exports.createItem = (req, res, next) => {
             message: 'Item inserted'
         });
     });
-    // item.save()
-    //     .then(result => {
-    //         return res.status(201).json({
-    //             message: 'Item created'
-    //         });
-    //     })
-    //     .catch(error => {
-    //         console.log(error);
-    //         return res.status(500).json({
-    //             message: 'Something error while create item'
-    //         });
-    //     });
 };
 
 exports.updateItem = async (req, res, next) => {
@@ -129,6 +122,7 @@ exports.updateItem = async (req, res, next) => {
         name,
         location,
         quantity,
+        description,
         category,
     } = req.body;
     const item = new Items({
@@ -136,6 +130,7 @@ exports.updateItem = async (req, res, next) => {
         name,
         location,
         quantity,
+        description,
         category,
         creator
     });
