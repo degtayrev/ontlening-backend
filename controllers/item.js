@@ -59,7 +59,7 @@ exports.getItemsByCat = (req, res, next) => {
                     name: bar.name,
                     location: bar.location,
                     quantity: bar.quantity,
-                    description: bar.description
+                    description: bar.description,
                     category: bar.category,
                     creator: bar.creator,
                     createdAt,
